@@ -38,8 +38,8 @@ var MainView = module.exports = Backbone.View.extend({
   },
   render: function() {
     this.$el.html(this.template());
-    this.view_restaurants_list.setElement("#restaurants_list");
-    this.view_restaurants_map.setElement("#restaurants_map");
+    this.view_restaurants_list.setElement("#view-list");
+    this.view_restaurants_map.setElement("#view-map");
 
     return this;
   }

@@ -6,9 +6,20 @@
 </div>
 <div class="restaurants-list">
 {{#each restaurants.models}}
-  <div class="restaurant-item line">
+  <div class="restaurant-item line" data-id="{{this.attributes.id}}">
       <h3>{{this.attributes.name}}</h3>
-      {{this.attributes.rating}}
+    <div class="line">
+      <div class="unit">
+      {{#if this.attributes.ratingColor}}
+        <span style="color:#{{this.attributes.ratingColor}}">{{this.attributes.rating}}</span>
+      {{else}}
+        unrated
+      {{/if}}
+      </div>
+      <div class="unitExt">
+        Distance: {{this.attributes.location.distance}}m
+      </div>
   </div>
+</div>
 {{/each}}
 </div>

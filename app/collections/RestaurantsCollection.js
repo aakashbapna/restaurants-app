@@ -11,7 +11,8 @@ module.exports = Backbone.Collection.extend({
 			return Foursquare.getVenuesBaseUrl()
 				+ "&ll="+ location.coords.latitude +","+ location.coords.longitude
 				+"&radius=2000"
-        +"&section=food";
+        +"&section=food"
+        +"&venuePhotos=1";
 		},
 
 		parse: function( data ){

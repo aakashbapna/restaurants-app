@@ -1,0 +1,14 @@
+<div class="line">
+  <h2 class="lastUnit"> All restaurants in this area </h2>
+  <div class="unitExt">
+    <button class="btn-sort"> sort by rating </button>
+  </div>
+</div>
+<div class="restaurants-list">
+{{#each restaurants.models}}
+  <div class="restaurant-item line">
+      <h3>{{this.attributes.name}}</h3>
+      {{this.attributes.rating}}
+  </div>
+{{/each}}
+</div>

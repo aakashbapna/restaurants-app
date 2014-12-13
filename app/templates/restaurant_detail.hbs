@@ -1,0 +1,36 @@
+<div class="modal">
+  <div class="modal-content">
+    <div class="modal-close">
+    </div>
+    <div class="modal-head">
+          <h1> {{model.attributes.name}} </h1>
+          <div class="line">
+            <div class="unit">
+                Rating:
+                {{#if model.attributes.ratingColor}}
+                  <span style="color:#{{model.attributes.ratingColor}}">{{model.attributes.rating}}</span>
+                {{else}}
+                  unrated
+                {{/if}}
+            </div>
+            <div class="unitExt">
+              Distance: {{model.attributes.location.distance}}m
+            </div>
+        </div>
+        {{#if model.attributes.contact.phone}}
+        <div>
+          Phone:
+          <a href="tel:{{model.attributes.contact.phone}}">{{model.attributes.contact.formattedPhone}}</a>
+        </div>
+        {{/if}}
+        <br/>
+        <div>
+          Price range: {{model.attributes.price.message}}
+        </div>
+        <br>
+        {{#each model.attributes.featuredPhotos.items}}
+        <img src="{{this.prefix}}500x300{{this.suffix}}" alt="featured photo"/>
+        {{/each}}
+</div>
+  </div>
+</div>

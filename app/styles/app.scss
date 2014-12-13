@@ -1,0 +1,46 @@
+@import "normalize";
+@import "oocss-grids";
+
+.block {
+  display: block;
+}
+.hidden {
+  display: hidden;
+}
+.pointer {
+  cursor:pointer;
+}
+
+/*app css*/
+#view-list, #view-map {
+  padding: 5px;
+}
+
+#view-list {
+    min-width: 320px;
+    max-width: 500px;
+}
+
+.restaurants-list {
+  padding:1px;
+  margin:5px;
+  height:500px;
+  overflow-y:auto;
+}
+
+.restaurant-item {
+  cursor:pointer;
+  padding:3px;
+  border: 1px solid #ccc;
+  border-collapse:collapse;
+  &:hover {
+    background: #d0d0d0;
+  }
+}
+
+#map-canvas {
+  width: 100%;
+  height: 550px;
+}
+
+@import "restaurant-detail";

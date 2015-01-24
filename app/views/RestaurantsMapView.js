@@ -46,9 +46,21 @@ module.exports = Backbone.View.extend({
     });
   },
   render: function() {
+    console.log("rendering map view");
     this.$el.html(this.template(this));
     var current_position = AppState.get("current_position");
     var myLatlng = new google.maps.LatLng(current_position.coords.latitude, current_position.coords.longitude);
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode({'latLng': myLatlng}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        console.dir(results);
+        if(results[1]) {
+          $("#location-text").text(results[1].formatted_address);
+        }
+      } else {
+        console.log('Geocoder failed due to: ' + status);
+      }
+    });
     var mapOptions = {
       zoom: 15,
       center: myLatlng

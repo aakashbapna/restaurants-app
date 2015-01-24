@@ -11,30 +11,90 @@
   cursor:pointer;
 }
 
+ul,ol {
+  margin: 0;
+  padding: 0;
+}
+
+h1, h3, h2 {
+  padding:0;
+  margin:0;
+  font-size:1em;
+  font-weight: normal;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-size: 80%;
+  overflow: hidden;
+  font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Geneva, Verdana, sans-serif;
+  color:#444;
+}
+
+/*font sizes*/
+.font-large {
+  font-size: 1.2em;
+}
+
+
+
 /*app css*/
-#view-list, #view-map {
+$primaryColor: rgb(60, 189, 205);
+$gray: #f2f2f2;
+$borderColor1: darken($gray, 10%);
+
+@import "shared";
+
+header {
+  padding: 5px 10px;
+  background: $primaryColor;
+  border-bottom: 1px solid $borderColor1;
+}
+
+.logo {
+  color: white;
+  font-size:2em;
+  font-weight:bold;
+  margin-right: 50px;
+  display:inline-block;
+  vertical-align: baseline;
+
+}
+
+.location-bar {
   padding: 5px;
+  width: 200px;
+  background: #fff;
+  border: 1px solid $gray;
+  border-radius: 1px;
+  display:inline-block;
+
 }
 
-#view-list {
-    min-width: 320px;
-    max-width: 500px;
+#location-text {
+  text-overflow: ellipsis;
+  width: 169px;
+  overflow: hidden;
+  display: inline-block;
+  white-space: nowrap;
+  vertical-align: super;
 }
 
-.restaurants-list {
-  padding:1px;
-  margin:5px;
-  height:500px;
-  overflow-y:auto;
-}
-
-.restaurant-item {
+.btn-location {
+  display:inline-block;
   cursor:pointer;
-  padding:3px;
-  border: 1px solid #ccc;
-  border-collapse:collapse;
-  &:hover {
-    background: #d0d0d0;
+
+  svg {
+      fill: blue;
+  }
+}
+
+#view-map {
+  @media screen and (max-width: 900px) {
+    width:100%;
   }
 }
 
@@ -43,4 +103,5 @@
   height: 550px;
 }
 
+@import "restaurant-list";
 @import "restaurant-detail";

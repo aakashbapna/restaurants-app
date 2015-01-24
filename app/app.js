@@ -5,4 +5,5 @@ var app = new MainView();
 $(document).ready(function(){
   console.log("Starting app");
   app.render();
+  app.getLocationAndFetch();
 })

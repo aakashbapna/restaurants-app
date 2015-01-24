@@ -1,25 +1,43 @@
-<div class="line">
-  <h2 class="lastUnit"> All restaurants in this area </h2>
+<div class="list-heading line">
+  <div class="unit"> Sort restaurants by: </div>
   <div class="unitExt">
-    <button class="btn-sort"> sort by rating </button>
+    <select class="select-sort">
+      <option value="rating">rating</option>
+      <option value="distance">distance</option>
+     </select>
   </div>
 </div>
-<div class="restaurants-list">
+<ol class="restaurants-list">
 {{#each restaurants.models}}
-  <div class="restaurant-item line" data-id="{{this.attributes.id}}">
-      <h3>{{this.attributes.name}}</h3>
-    <div class="line">
-      <div class="unit">
-      {{#if this.attributes.ratingColor}}
-        <span style="color:#{{this.attributes.ratingColor}}">{{this.attributes.rating}}</span>
-      {{else}}
-        unrated
-      {{/if}}
+  {{#with this.attributes}}
+    <li class="restaurant-item" data-id="{{id}}">
+        <div class="line">
+          <div class="unit size4of5">
+            <h3 class="name font-large"><strong>{{name}}</strong></h3>
+            <div class="address">
+              {{location.address}}
+              {{#if location.crossStreet}}, {{location.crossStreet}}
+              {{/if}}
+            </div>
+            <div class="others">
+              {{categories.0.shortName}}
+              &bull; {{location.distance}}m
+            </div>
+            <div class="reviews">
+              {{#if ratingColor}}
+              <span style="color:#{{ratingColor}}">{{rating}}</span>
+              {{else}}
+              unrated
+              {{/if}}
+            </div>
+          </div>
+          <div class="lastUnit">
+            {{#each featuredPhotos.items}}
+            <img class="restaurant-thumb" src="{{this.prefix}}100x100{{this.suffix}}" alt="featured photo"/>
+            {{/each}}
+          </div>
       </div>
-      <div class="unitExt">
-        Distance: {{this.attributes.location.distance}}m
-      </div>
-  </div>
-</div>
+    </li>
+  {{/with}}
 {{/each}}
-</div>
+</ol>

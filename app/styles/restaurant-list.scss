@@ -1,0 +1,32 @@
+#view-list {
+  min-width: 320px;
+  border-left: 1px solid $borderColor1;
+  height:500px;
+}
+
+.list-heading {
+  background: $gray;
+  padding: 10px;
+  border-bottom: 1px solid $borderColor1;
+}
+
+.restaurants-list {
+  overflow-y:auto;
+  height:100%;
+}
+
+.restaurant-item {
+  cursor:pointer;
+  padding:10px;
+  line-height: 20px;
+  border-bottom: 1px solid $gray;
+  border-left:2px solid #fff;
+  border-collapse:collapse;
+  &:hover {
+    border-left-color: $primaryColor;
+  }
+}
+
+.restaurant-thumb {
+  width:100%;
+}
